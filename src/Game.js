@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Board from './board.js';
+import Board from './Board.js';
 import calculateWinner from './calculateWinner.js';
 
 
@@ -9,7 +9,8 @@ const Game = () => {
   const [xIsNext, setXIsNext] = useState(true)
 
 
-  handleClick = (i) =>  {
+
+const handleClick = (i) =>  {
     const history = history.slice(0, stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -22,13 +23,14 @@ const Game = () => {
           squares: squares
         }
       ]),
-    setStepNumber : history.length,
-    setXIsNext : !xIsNext
-  }
+    setStepNumber(history.length),
+    setXIsNext(xIsNext => !xIsNext)
+  )
+}
 
-  jumpTo = (step) => {
+const jumpTo = (step) => {
     setStepNumber: step,
-    setXIsNext: (step % 2) === 0
+    setXIsNext((step % 2) === 0)
   }
 
   render() {

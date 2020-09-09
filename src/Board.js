@@ -13,7 +13,7 @@ const Board = (i) => {
     );
   }
 
-  render() {
+
     let rows = [];
     for(let i = 0; i < 3; i++) {
       let columns = [];
@@ -21,7 +21,7 @@ const Board = (i) => {
         columns.push(this.renderSquare(3*i+j));
       }
       rows.push(<div key={i} className = "board-row">{columns}</div>);
-    }
+ 
     
 
     return (
